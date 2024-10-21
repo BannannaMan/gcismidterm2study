@@ -62,6 +62,35 @@ def odd_lines2(filename):
             count += 1
     return count
 
+def even_letters(filename):
+    with open(filename) as file:
+        output = ""
+        for line in file:
+            counter = 0
+            stripped = line.strip()
+            if stripped == "":
+                continue
+            else:
+                length = len(stripped)
+                while counter < length:
+                    output += stripped[counter]
+                    counter += 2
+    return output
+
+def average_words(filename):
+    with open(filename) as file:
+        for line in file:
+            number = 0
+            divider = 0
+            stripped = line.strip()
+            if stripped == "":
+                continue
+            else:
+                tokens = stripped.split()
+                number += len(tokens)
+                divider += 1
+    output = number / divider
+    return output
 
 
 def main():
@@ -70,8 +99,10 @@ def main():
 #    print(harmonic_sum(100))
 #    the_raven()
 #    open_file('full_grades_100.csv')
-    print(odd_lines('grades_010.csv'))
-    print(odd_lines2('alice.txt'))
+#    print(odd_lines('grades_010.csv'))
+#    print(odd_lines2('alice.txt'))
+#    print(even_letters("alice.txt"))
+    print(average_words('alice.txt'))
 
 
 
